@@ -22,46 +22,55 @@ $this->pageBreadcrumbs()->setItems([
 </a>
 </p>
 
-<table class="table table-striped">
-
-   <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Date Created</th>
-        <th>Actions</th>        
-    </tr>
-    
-    <?php foreach ($roles as $role): ?>
-    
-    <tr>
-        <td><?= $this->escapeHtml($role->getId()); ?></td>
-        <td>
-            <a href="<?= $this->url('roles', ['action'=>'view', 'id'=>$role->getId()]); ?>">
-                <?= $this->escapeHtml($role->getName()); ?>
-            </a> 
-        </td>
-        <td><?= $this->escapeHtml($role->getDescription()); ?></a> 
-        </td>
-        <td><nobr><?= $this->escapeHtml($role->getDateCreated()); ?></nobr></td>        
-        <td>
-            </nobr>
-            <a class="btn btn-info" href="<?= $this->url('roles', 
-                    ['action'=>'edit', 'id'=>$role->getId()]); ?>">
-                <span class="glyphicon glyphicon-pencil" ></span> Edit
-            </a>
-            <a class="btn btn-danger" href="<?= $this->url('roles',
-                    ['action'=>'delete', 'id'=>$role->getId()]); ?>">
-                <span class="glyphicon glyphicon-remove"></span> Delete
-            </a>
-            </nobr>
-        </td>    
-    </tr>
-        
-    <?php endforeach; ?>   
-    
-</table>
 
 
+<div class="row">
+    <div class="col-lg-12">
+    <div class="ibox">
+        <div class="ibox-content">
+            <div class="table-responsive">
 
+            <table class="table table-striped">
 
+               <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Date Created</th>
+                    <th>Actions</th>        
+                </tr>
+                
+                <?php foreach ($roles as $role): ?>
+                
+                <tr>
+                    <td><?= $this->escapeHtml($role->getId()); ?></td>
+                    <td>
+                        <a href="<?= $this->url('roles', ['action'=>'view', 'id'=>$role->getId()]); ?>">
+                            <?= $this->escapeHtml($role->getName()); ?>
+                        </a> 
+                    </td>
+                    <td><?= $this->escapeHtml($role->getDescription()); ?></a> 
+                    </td>
+                    <td><nobr><?= $this->escapeHtml($role->getDateCreated()); ?></nobr></td>        
+                    <td>
+                        </nobr>
+                        <a class="btn btn-info" href="<?= $this->url('roles', 
+                                ['action'=>'edit', 'id'=>$role->getId()]); ?>">
+                            <span class="glyphicon glyphicon-pencil" ></span> Edit
+                        </a>
+                        <a class="btn btn-danger" href="<?= $this->url('roles',
+                                ['action'=>'delete', 'id'=>$role->getId()]); ?>">
+                            <span class="glyphicon glyphicon-remove"></span> Delete
+                        </a>
+                        </nobr>
+                    </td>    
+                </tr>
+                    
+                <?php endforeach; ?>   
+                
+            </table>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

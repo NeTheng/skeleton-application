@@ -65,9 +65,9 @@ class UserController extends AbstractActionController {
 			->getQuery()
 			->getResult();
 
-		echo "<pre>";
-		echo $dql;
-		echo "</pre>";
+		// echo "<pre>";
+		// echo $dql;
+		// echo "</pre>";
 
 		return new ViewModel([
 			'users' => $users,
