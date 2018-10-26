@@ -203,10 +203,27 @@ return [
                     'route' => '/about',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
-                        'action' => 'about'
-                    ]
-                ]
-            ]
+                        'action' => 'about',
+                    ],
+                ],
+            ],
+            
+            
+            'images' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/images[/:action]',
+                    'constraints' => [
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*'
+                    ],
+                    'defaults' => [
+                        'controller'    => Controller\ImageController::class,
+                        'action'        => 'index',
+                    ],
+                ],
+            ],
+            
+            
         ]
     ],
     'controllers' => [
@@ -215,7 +232,8 @@ return [
             Controller\UserController::class => Controller\Factory\UserControllerFactory::class,
             Controller\IndexController::class => InvokableFactory::class,
             Controller\PermissionController::class => Controller\Factory\PermissionControllerFactory::class,
-            Controller\RoleController::class => Controller\Factory\RoleControllerFactory::class
+            Controller\RoleController::class => Controller\Factory\RoleControllerFactory::class,
+            Controller\ImageController::class => Controller\Factory\ImageControllerFactory::class,
         ]
     ],
     // The 'access_filter' key is used by the User module to restrict or permit
@@ -306,7 +324,9 @@ return [
 
             Service\PermissionManager::class => Service\Factory\PermissionManagerFactory::class,
             Service\RbacManager::class => Service\Factory\RbacManagerFactory::class,
-            Service\RoleManager::class => Service\Factory\RoleManagerFactory::class
+            Service\RoleManager::class => Service\Factory\RoleManagerFactory::class,
+            
+            Service\ImageManager::class => InvokableFactory::class,
         ]
     ],
 
